@@ -1,0 +1,14 @@
+.Card{
+    border: 2px solid black;
+    width: 222px;
+      text-align: center;
+}
+.container{
+    display: grid;
+    gap: 12px;
+     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center;
+    text-align: center;
+    margin: 22px;
+    padding-left: 262px;
+}
