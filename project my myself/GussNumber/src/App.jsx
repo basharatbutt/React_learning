@@ -6,7 +6,7 @@ function App() {
   const [previous, setPrevious] = useState([]);
   const [remaning, setRemaning] = useState(10);
   const [endgame, setEndgame] = useState(false);
-  const [lowhigh, setLowHigh] = useState("");
+  const [message, setMessage] = useState(""); 
   const [inpvalue, setInpvalue] = useState('')
 
 
@@ -21,21 +21,45 @@ function App() {
     else if  (value > 100) {
       alert("Enter a value smaller than 100")
     }
-  
+    hightolow(value);
+    dispreious();
+   }
 
- if (value === randomnum) {
-      alert("🎉 Yes! You guessed it right!");
-      setGameOver(true);
-    } else if (remaning === 0) {
-      alert('💀 Game Over! The number was idk');
-      setGameOver(true);
-    } else if (value < targetNumber) {
-      alert("📉 Your number is too low");
-    } else if (value > targetNumber) {
-      alert("📈 Your number is too high");
-    }
 
+   let hightolow = (correct) => {
+     if (correct === randomnum){
+     setMessage(`🎉 You Win! You guessed it right!`)
+     End(); 
+     }
+     else if(correct < randomnum){
+      setMessage(`Your number is too Low!`)
+      disremaining ();
+     }
+     else if(correct > randomnum){
+      setMessage(`Your number is too High!`)
+      disremaining ();
+     }
+   }
+
+
+   let disremaining = () => {
+    setRemaning(remaning - 1);
+    if (remaning  === 1){
+      setMessage(`Game over`)
+      End();
     }
+   }
+
+   let dispreious = () => {
+    let value = parseInt(inpvalue);
+    setPrevious(prev => [...prev, value])
+   }
+
+
+   let End = () => {
+     setEndgame(true);
+   }
+
 
   return (
     <>
@@ -70,26 +94,29 @@ function App() {
                   placeholder='Enter number'
                   value={inpvalue}
                   onChange={(e) => setInpvalue(e.target.value)}
+                  disabled={endgame}
                 />
               </div>
 
-              <button className='bg-orange-500 px-4 py-2 rounded-lg hover:bg-orange-600 font-bold tracking-wide text-white transition-colors'
+              <button className='btn bg-orange-500 px-4 py-2 rounded-lg hover:bg-orange-600 font-bold tracking-wide text-white transition-colors'
                 onClick={handlechange}
+                disabled={endgame}
               >
                 Submit
               </button>
-
             </div>
           </div>
 
+     <div className="felx mt-5 text-2xl font-bold tracking-wide  text-orange-100">{message}</div>
 
+          <p className=' pre text-white mt-4 text-xl font-medium'>
+            Previous : {previous.join(", ")}
+          </p>
+          <p className=' ree text-white mt-4 text-xl font-medium'>
+            Remaining attempts : {remaning}
+          </p>
 
-          <p className=' pre text-white mt-4 text-lg font-medium'>
-            Previous :
-          </p>
-          <p className=' ree text-white mt-4 text-lg font-medium'>
-            Remaining :
-          </p>
+        
 
         </div>
 
