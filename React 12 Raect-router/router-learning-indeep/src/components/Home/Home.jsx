@@ -32,12 +32,12 @@ const Home = () => {
                 </div>
 
                 <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
-                    <img className="w-96" src="https://i.ibb.co/5BCcDYB/Remote2.png" alt="image1" />
+                    <img className="w-96" src="https://www.shutterstock.com/shutterstock/photos/189912926/display_1500/stock-vector-man-relaxing-on-beach-tropical-holiday-holiday-concept-vector-illustration-189912926.jpg" alt="image1" />
                 </div>
             </aside>
 
             <div className="grid  place-items-center sm:mt-20">
-                <img className="sm:w-96 w-48" src="https://i.ibb.co/2M7rtLk/Remote1.png" alt="image2" />
+                <img className="sm:w-96 w-48" src="https://static.vecteezy.com/system/resources/previews/047/758/618/non_2x/working-from-home-office-lofi-wallpaper-typing-freelancer-african-american-man-at-laptop-2d-cartoon-flat-illustration-corporate-job-late-night-chill-art-lo-fi-aesthetic-colorful-background-vector.jpg" alt="image2" />
             </div>
 
             <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Lorem Ipsum Yojo</h1>
