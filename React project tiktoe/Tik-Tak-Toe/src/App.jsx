@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useState,useCallback  } from 'react'
 import './App.css'
 
 function App() {
   const [Cross, setCross] = useState("")
   const [Circle, setCircle] = useState("")
 
-  const playgame = useCallback( () => {
-      let Corss = "" 
+  const playgame = useCallback(
+     () => {
+      let Cross = "";
+      console.log("Game started");
     },[])
   
 
