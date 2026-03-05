@@ -1,64 +1,83 @@
-import { useState,useCallback  } from 'react'
+import { useState } from 'react'
 import './App.css'
 
-function App() {
-  const [Cross, setCross] = useState("")
-  const [Circle, setCircle] = useState("")
+// --- 1. Keep your SVGs as components (This is the RIGHT way) ---
+const CrossIcon = () => (
+  <svg className="w-16 h-16 text-red-500" fill="currentColor" viewBox="0 0 1024 1024">
+    <path d="M810.66 170.66q18.33 0 30.49 12.17t12.17 30.49q0 18-12.33 30.33L572.31 512l268.68 268.33q12.33 12.33 12.33 30.33 0 18.33-12.17 30.49t-30.49 12.17q-18 0-30.33-12.33L512 572.31 243.67 840.99q-12.33 12.33-30.33 12.33-18.33 0-30.49-12.17t-12.17-30.49q0-18 12.33-30.33L451.69 512 183.01 243.67q-12.33-12.33-12.33-30.33 0-18.33 12.17-30.49t30.49-12.17q18 0 30.33 12.33L512 451.69 780.33 183.01q12.33-12.33 30.33-12.33z" />
+  </svg>
+)
 
-  const playgame = useCallback(
-     () => {
-      let Cross = "";
-      console.log("Game started");
-    },[])
-  
+const CircleIcon = () => (
+  <svg className="w-16 h-16 text-blue-500" fill="currentColor" viewBox="0 0 1024 1024">
+    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" />
+  </svg>
+)
+
+function App() {
+  // --- 2. THE GAME STATE ---
+  // We create an array of 9 empty spots: [null, null, null, null, null, null, null, null, null]
+  const [board, setBoard] = useState(Array(9).fill(null))
+  const [isXTurn, setIsXTurn] = useState(true)
+
+  // --- 3. FUNCTION TO HANDLE CLICK ---
+  const handleClick = (index) => {
+    // If box is already full, do nothing
+    if(board[index] !== null) return;
+
+    // Copy the board
+    const newBoard = [...board];
+    
+    // Update the clicked box
+    newBoard[index] = isXTurn ? "X" : "O";
+    
+    // Save state
+    setBoard(newBoard);
+    setIsXTurn(!isXTurn); // Switch turn
+  }
 
   return (
     <>
-    <header>
-      <h1 className='flex text-3xl justify-center py-23  align-middle text-center'>Hey!Welcome to my Tik-Tak-Toe</h1>
-    </header>
-    <main className="pic">
-      <div className="picture flex text-3xl justify-center items-center">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaBIk7DfRBjfDy1E8zY9Z1CtFlEGJ-I57U1Q&s" alt="Tik-Tak-Toe"/>
-      </div>
+      <header>
+        <h1 className='text-3xl text-center py-10 font-bold'>
+           Tic-Tac-Toe Game
+        </h1>
+        <p className="text-center text-xl mb-5">
+           Turn: {isXTurn ? "Cross (X)" : "Circle (O)"}
+        </p>
+      </header>
 
-      <div className="cross">
-        <div className="text-black"> {/* Container to control color/size */}
-            <svg 
-              className="svg-icon" 
-              style={{ 
-                width: "100px",       // I made it bigger so you can see it
-                height: "100px", 
-                verticalAlign: "middle", 
-                fill: "currentColor", 
-                overflow: "hidden" 
-              }} 
-              viewBox="0 0 1024 1024" 
-              version="1.1" 
-              xmlns="http://www.w3.org/2000/svg"
+      <main className="flex justify-center items-center">
+        
+        {/* --- 4. THE BOARD (Made with CSS Grid, NOT an Image) --- */}
+        <div className="grid grid-cols-3 gap-2 bg-gray-800 p-2 rounded-xl">
+          
+          {/* We map over the 9 spots to create 9 boxes automatically */}
+          {board.map((cell, index) => (
+            <div 
+              key={index} 
+              onClick={() => handleClick(index)}
+              className="w-24 h-24 bg-white flex justify-center items-center cursor-pointer rounded shadow-md hover:bg-gray-100"
             >
-              <path d="M810.65984 170.65984q18.3296 0 30.49472 12.16512t12.16512 30.49472q0 18.00192-12.32896 30.33088l-268.67712 268.32896 268.67712 268.32896q12.32896 12.32896 12.32896 30.33088 0 18.3296-12.16512 30.49472t-30.49472 12.16512q-18.00192 0-30.33088-12.32896l-268.32896-268.67712-268.32896 268.67712q-12.32896 12.32896-30.33088 12.32896-18.3296 0-30.49472-12.16512t-12.16512-30.49472q0-18.00192 12.32896-30.33088l268.67712-268.32896-268.67712-268.32896q-12.32896-12.32896-12.32896-30.33088 0-18.3296 12.16512-30.49472t30.49472-12.16512q18.00192 0 30.33088 12.32896l268.32896 268.67712 268.32896-268.67712q12.32896-12.32896 30.33088-12.32896z" />
-            </svg>
-      </div>
-      </div>
-
-
-      <div className="circle">
-         <div className="circle text-black"> {/* Added Color Here */}
-            <svg 
-              className="svg-icon" 
-              style={{ width: "100px", height: "100px", verticalAlign: "middle", fill: "currentColor", overflow: "hidden" }} 
-              viewBox="0 0 1024 1024" 
-              version="1.1" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* This path draws a Ring/Circle */}
-              <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" />
-            </svg>
-          </div>
+              {/* If value is "X", show Cross. If "O", show Circle. If null, show nothing. */}
+              {cell === "X" && <CrossIcon />}
+              {cell === "O" && <CircleIcon />}
+            </div>
+          ))}
 
         </div>
-    </main>
+
+      </main>
+      
+      {/* Reset Button */}
+      <div className="flex justify-center mt-10">
+          <button 
+            onClick={() => setBoard(Array(9).fill(null))}
+            className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition"
+          >
+            Reset Game
+          </button>
+      </div>
     </>
   )
 }
