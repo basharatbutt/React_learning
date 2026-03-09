@@ -21,19 +21,16 @@ function App() {
   const [isXTurn, setIsXTurn] = useState(true)
 
   // --- 3. FUNCTION TO HANDLE CLICK ---
-  const handleClick = (index) => {
+  const handleClick = (numofbox) => {
     // If box is already full, do nothing
-    if(board[index] !== null) return;
-
+      if(board[numofbox] !== null ) return;
     // Copy the board
     const newBoard = [...board];
-    
     // Update the clicked box
-    newBoard[index] = isXTurn ? "X" : "O";
-    
+    newBoard[numofbox] = isXTurn ? "X" : "O"
     // Save state
     setBoard(newBoard);
-    setIsXTurn(!isXTurn); // Switch turn
+    setIsXTurn(!isXTurn)
   }
 
   return (
