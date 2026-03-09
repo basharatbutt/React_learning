@@ -2,7 +2,21 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [Value, setValue] = useState("0")
+  const [Value, setValue] = useState("0");
+
+
+   // This is where your try...catch belongs!
+  const calculateResult = () => {
+    try{
+     const result = eval(Value);
+     setValue(String(result))
+    }
+      catch(error){
+       setValue("Error")
+    }
+   }   
+}
+ 
 
   return (
     <>
@@ -15,8 +29,6 @@ function App() {
            value={Value} 
            className='w-full h-full bg-transparent text-white text-right text-3xl px-4 outline-none cursor-default rounded-xl'/>
         </div>
-
-        
 
 
 <div className="allbtn flex flex-col gap-3">
@@ -57,9 +69,10 @@ function App() {
          <div className="buttons flex justify-between">
           <input type="button" value="00" onClick={(e) => setValue(Value + e.target.value)} className="w-14 h-14 bg-gray-700 rounded-full text-white font-bold text-xl cursor-pointer hover:bg-gray-600 active:scale-95 transition-transform" />
           <input type="button" value="0" onClick={(e) => setValue(Value + e.target.value)}  className="w-14 h-14 bg-gray-700 rounded-full text-white font-bold text-2xl cursor-pointer hover:bg-gray-600 active:scale-95 transition-transform" />
-          <input type="button" value="=" onClick={(e) => setValue(evel(Value))} className="w-[124px] h-14 bg-orange-500 rounded-full text-white font-bold text-3xl cursor-pointer hover:bg-orange-400 active:scale-95 transition-transform" />
+          <input type="button" value="=" onClick={calculateResult} className="w-[124px] h-14 bg-orange-500 rounded-full text-white font-bold text-3xl cursor-pointer hover:bg-orange-400 active:scale-95 transition-transform" />
          </div>
          </div>
+         
 
        </div>
     </div>
