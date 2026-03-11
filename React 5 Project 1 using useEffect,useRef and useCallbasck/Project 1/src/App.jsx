@@ -6,6 +6,8 @@ function App() {
   const [allowednum, setAllowednum] = useState(false)
   const [allowedchar, setAllowedchar] = useState(false)
   const [password, setPassword] = useState("")
+  const [isCopied, setIsCopied] = useState(false);
+
   const passwordRef = useRef(null)
 
 const passwordGenerator = useCallback(()=>{
@@ -27,8 +29,13 @@ useEffect(()=>{
 },[length, allowedchar, allowednum, passwordGenerator])
 
 const copypass = useCallback(()=>{
-  window.navigator.clipboard.writeText(password)
+setIsCopied(true);
+  window.navigator.clipboard.writeText(passwordRef.current.value)
+  setTimeout(() => {
+    setIsCopied(false)
+  }, 200);
 },[password])
+
 
   return (
       <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-8 py-6 my-8 bg-gray-800 text-orange-500">
@@ -55,9 +62,10 @@ const copypass = useCallback(()=>{
         </button>
         <button 
         onClick={copypass}
-          className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-blue-600 transition-colors duration-200 font-medium'
+          className={`outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-blue-600 transition-colors duration-200 font-medium`  }
         >
-          Copy
+                    {isCopied  ? "Copied!" : "Copy" }
+
         </button>
       </div>
 
@@ -71,6 +79,7 @@ const copypass = useCallback(()=>{
             value={length}
             className='cursor-pointer'
             onChange={(e) => {setLength(e.target.value)}}
+            
           />
           <label>Length: {length}</label>
         </div>
