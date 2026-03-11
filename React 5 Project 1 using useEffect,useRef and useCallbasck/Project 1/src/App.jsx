@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import './App.css';
 
 function App() {
-  const [length, setLength ] = useState(8)
+  const [Length, setLength ] = useState(8)
   const [allowednum, setAllowednum] = useState(false)
   const [allowedchar, setAllowedchar] = useState(false)
   const [password, setPassword] = useState("")
@@ -16,17 +16,17 @@ let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 if(allowednum) str += "123456789";
 if(allowedchar) str += "!~@#$%^&*()_?><:";
 
-for (let i = 1; i < length; i++) {
+for (let i = 0; i < Length; i++) {
   let char = Math.floor(Math.random() * str.length + 1)
   pass += str.charAt(char)
 
 }
 setPassword(pass)
-},[length,allowednum,allowedchar, setPassword])
+},[Length,allowednum,allowedchar, setPassword])
 
 useEffect(()=>{
   passwordGenerator()
-},[length, allowedchar, allowednum, passwordGenerator])
+},[Length, allowedchar, allowednum, passwordGenerator])
 
 const copypass = useCallback(()=>{
 setIsCopied(true);
@@ -53,7 +53,7 @@ setIsCopied(true);
         />
          <button 
           onClick={passwordGenerator}
-          className='outline-none bg-blue-500 text-white px-3 hover:bg-blue-600 transition-colors duration-200 border-r border-blue-400'
+          className='outline-none bg-gray-600  text-white px-3 hover:bg-blue-500 transition-colors duration-200 border-r border-blue-500'
           title="Generate New Password"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
@@ -62,7 +62,7 @@ setIsCopied(true);
         </button>
         <button 
         onClick={copypass}
-          className={`outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-blue-600 transition-colors duration-200 font-medium`  }
+          className={`outline-none bg-blue-800 text-white px-3 py-0.5 shrink-0 hover:bg-blue-600 transition-colors duration-200 font-medium`  }
         >
                     {isCopied  ? "Copied!" : "Copy" }
 
@@ -76,12 +76,12 @@ setIsCopied(true);
             type="range"
             min={6}
             max={20}
-            value={length}
+            value={Length}
             className='cursor-pointer'
             onChange={(e) => {setLength(e.target.value)}}
             
           />
-          <label>Length: {length}</label>
+          <label>Length: {Length}</label>
         </div>
 
         <div className="flex items-center gap-x-1">
