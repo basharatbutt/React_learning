@@ -89,7 +89,7 @@ setIsCopied(true);
             type="checkbox"
             defaultChecked={allowednum}
             id="numberInput"
-            onChange={() => {
+            onChange={(e) => {
                 setAllowednum((prev) => !prev);
             }}
           />
@@ -105,7 +105,7 @@ setIsCopied(true);
                 setAllowedchar((prev) => !prev);
             }}
           />
-          <label htmlFor="characterInput">Characters</label>
+          <label >Characters</label>
         </div>
 
       </div>
