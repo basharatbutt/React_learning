@@ -12,7 +12,7 @@ const Navbar = () => {
 
       {/* Menu */}
       <ul className="flex space-x-10 text-sm font-bold tracking-widest text-gray-300">
-        {["HOME", "ABOUT", "PROJECTS", "BLOG", "CONTACT"].map((item) => (
+        {["HOME", "ABOUT", "PROJECTS", "SERVICES", "CONTACT"].map((item) => (
           <li
             key={item}
             className="relative cursor-pointer hover:text-[#00FF66] 
