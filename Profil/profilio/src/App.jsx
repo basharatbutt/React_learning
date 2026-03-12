@@ -94,19 +94,38 @@ function App() {
             ========================================= */}
         {/* mt-10 and mb-32 add distance from the text above and the section below */}
 
+<div className="flex flex-col lg:flex-row items-center justify-between px-5 sm:px-8 lg:px-2 mt-10 mb-32 gap-86 max-w-7xl mx-auto">
 
-         <div className="felx justify-around"></div>
+  {/* LEFT SIDE: Text */}
+  <div className="w-full lg:w-1/2 flex flex-col">
+    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#22C3E6] mb-6">
+      About Me
+    </h2>
 
-        <div className="w-140 mt-10 mb-32 ">
-          <img 
-            src="https://scontent.fisb17-1.fna.fbcdn.net/v/t39.30808-6/480396975_1861084128042395_2828825702740803829_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeGK45WVnkAiAjJYM8ZAAkYfUF6klP5r9_9QXqSU_mv3_8iCpVVHoxHqi1ibob2jb4FVRehv2wzkannM0QrC2zll&_nc_ohc=8ixXVHgHx6oQ7kNvwEDJyt7&_nc_oc=AdnhfBhSVwjeUXET9HVhIoD4cO1PYWzO3ZWplJZOaDRQhGJVIKu-c_Jt7AMRZR62O6kYdNwuK5eJLNk6B14CadkJ&_nc_zt=23&_nc_ht=scontent.fisb17-1.fna&_nc_gid=44jfrjFIpNq635wPAJrKDg&_nc_ss=8&oh=00_Afzsq38LeFr6RfXkPHDjm_VDz_ls6RP1pukWnJfSO9BtqA&oe=69B83399" 
-            alt="Roton Mir" 
-            // BIGGER IMAGE: Changed w-[400px] to w-[600px] and lg:w-[800px]
-            className="w-[600px] lg:w-[800px] object-contain drop-shadow-2xl rounded-2xl border-4"
-            style={{ borderColor: '#00FF66' }} 
-          />
-            <div className="text felx justify-center">ndkjlsahdlkjashdlas</div>
-                  </div>
+    <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+      I am a passionate Full Stack Developer skilled in <strong>HTML, CSS, JavaScript, React.js, Node.js, and Express.js</strong>.  
+      I have <strong>4 months of hands-on internship experience</strong> working on responsive web applications and learning modern development practices.  
+      I am continuously improving my skills to build <strong>scalable, efficient, and user-friendly web solutions</strong>.
+    </p>
+
+    <button
+      className="mt-6 px-8 py-3 md:px-10 md:py-4 text-black font-bold rounded-full bg-[#22C3E6] hover:scale-105 transition-transform"
+    >
+      Hire Me
+    </button>
+  </div>
+
+  {/* RIGHT SIDE: Image */}
+  <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:pl-12">
+    <img
+      src="https://scontent.fisb17-1.fna.fbcdn.net/v/t39.30808-6/480396975_1861084128042395_2828825702740803829_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeGK45WVnkAiAjJYM8ZAAkYfUF6klP5r9_9QXqSU_mv3_8iCpVVHoxHqi1ibob2jb4FVRehv2wzkannM0QrC2zll&_nc_ohc=8ixXVHgHx6oQ7kNvwEDJyt7&_nc_oc=AdnhfBhSVwjeUXET9HVhIoD4cO1PYWzO3ZWplJZOaDRQhGJVIKu-c_Jt7AMRZR62O6kYdNwuK5eJLNk6B14CadkJ&_nc_zt=23&_nc_ht=scontent.fisb17-1.fna&_nc_gid=44jfrjFIpNq635wPAJrKDg&_nc_ss=8&oh=00_Afzsq38LeFr6RfXkPHDjm_VDz_ls6RP1pukWnJfSO9BtqA&oe=69B83399"
+      alt="Basharat Ul Asad"
+      className="w-[660px] sm:w-[350px] md:w-[450px] lg:w-[600px] rounded-2xl border-4 shadow-2xl object-cover"
+      style={{ borderColor: '#22C3E6' }}
+    />
+  </div>
+
+</div>
 
       </main>
 
