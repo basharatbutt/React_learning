@@ -19,7 +19,7 @@ function App() {
     <Navbar/>
     <div className="min-h-screen bg-black text-white overflow-hidden pt-20">
       
-      <main className="flex flex-col items-center justify-center px-6 lg:px-32">
+      <main className="flex flex-col items-center justify-center px-6 lg:px-50">
       
         {/* =========================================
             1. HERO SECTION 
@@ -46,13 +46,14 @@ function App() {
 
           {/* LEFT SIDE: THE TEXT & SOCIAL ICONS */}
           <div className="relative z-10 space-y-6 w-full lg:w-1/2 text-center lg:text-left">
-            <h3 className="text-xl lg:text-2xl font-bold tracking-widest uppercase" style={{ color: '#05FF69' }}>
+            <h3 className="text-xl lg:text-2xl font-bold tracking-widest uppercase" style={{ color: '#05FF69'  }}>
               HI THERE,
             </h3>
             
             <h1 className="text-4xl sm:text-5xl lg:text-4xl xl:text-6xl font-bold leading-tight">
               I am <br className="hidden lg:block" />
-              <span style={{ color: '#00FF66' }}>
+              <span className='font-black uppercase tracking-wider ' style={{ color: '#00FF66', fontFamily: "'Poppins', sans-serif", 
+    fontWeight: '700' }}>
                 <Typewriter
                   words={['Basharat Ul Asad', 'A Full Stack Developer']}
                   loop={0} 
@@ -119,8 +120,8 @@ function App() {
         {/* =========================================
             2. ABOUT ME SECTION
             ========================================= */}
-        <div className="flex flex-col items-center text-center px-5 sm:px-8 lg:px-2 mt-10 mb-32 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#22C3E6] mb-6">
+        <div className="flex flex-col items-center text-center px-5 sm:px-8 lg:px-2 mt-10 mb-32 max-w-4xl mx-auto pt-36">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#3ec23c] mb-6">
             About Me
           </h2>
 
@@ -131,10 +132,16 @@ function App() {
           </p>
 
           <button
-            className="mt-8 px-8 py-3 md:px-10 md:py-4 text-black font-bold rounded-full bg-[#22C3E6] hover:scale-105 transition-transform shadow-[0_0_15px_rgba(34,195,230,0.4)]"
+            className="mt-8 px-8 py-3 md:px-10 md:py-4 text-black font-bold rounded-full bg-[#3ec23c] hover:scale-105 transition-transform shadow-[0_0_15px_rgba(34,195,230,0.4)]"
           >
             Download CV
           </button>
+        </div>
+
+        <div className="flex items-center justify-center lg:justify-center text-xl gap-16 pt-36 pb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#3ec23c] mb-6">
+            Services
+          </h2>
         </div>
 
       </main>
