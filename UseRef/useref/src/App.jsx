@@ -3,10 +3,19 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const firstRender = useRef(true)
 
+
+  useEffect (() => {
+    alert("hii i am here")
+  }, [])
 
   useEffect(() => {
-    alert("hii i am here")
+    if (firstRender.current) {
+      firstRender.current=false
+      return
+    }
+    alert("hii i am here too")
   }, [count])
   
 
