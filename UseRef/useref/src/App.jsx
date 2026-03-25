@@ -23,7 +23,7 @@ function App() {
     <>
       <div className='flex flex-col  justify-center items-center h-screen'>
         click to update the value {count}
-      <div className='cursor-pointer ' onClick={() => {setCount(count + 1)}}>Click Here</div>
+      <div className='cursor-pointer ' onClick={() => {setCount(count * 10)}}>Click Here</div>
       </div>
 
     </>
