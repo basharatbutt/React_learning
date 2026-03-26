@@ -14,7 +14,7 @@ function App() {
     }
 
     timerRef.current = setTimeout(() => {
-      setnCount((prev) => (count + 2) * 10) 
+      setnCount((prev) => (count + 1) * 10) 
     }, 5000)
   }
 
